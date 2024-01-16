@@ -17,6 +17,9 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
+    const playerSelection = "rock";
+    const computerSelection = getComputerChoice();
+
     if (playerSelection === computerSelection) {
         return "You Lose, So The Bot";
     }
@@ -41,12 +44,10 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
 console.log("I Play:", playerSelection);
 console.log("The Bot Plays:", computerSelection);
 console.log(playRound(playerSelection, computerSelection));
+
 
 function game() {
     // your code here!
