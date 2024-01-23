@@ -7,52 +7,67 @@
 
 
 function getComputerChoice() {
-    let choices = ["Rock", "Paper", "Scissors"];
+    let choices = ["Rock", "Paper", "Scissor"];
     let randomChoicesIndex = Math.floor(Math.random() * choices.length);
     let randomChoicesString = choices[randomChoicesIndex];
     return randomChoicesString;
 }
 // console.log(getComputerChoice());
 
+
+// let sign = prompt("What's your sign?");
+
+// if (sign.toLowerCase() === "scorpio") {
+//     alert("Wow! I'm a Scorpio too!");
+// }
+
+// // there are many ways to use the prompt feature
+// sign = window.prompt(); // open the blank prompt window
+// sign = prompt(); //  open the blank prompt window
+// sign = window.prompt("Are you feeling lucky"); // open the window with Text "Are you feeling lucky"
+// sign = window.prompt("Are you feeling lucky", "sure"); // open the window with Text "Are you feeling lucky" and default value "sure"
+
+
+const prompt = require('prompt-sync')();
+
 function getPlayerChoice() {
-    let choices = ["Rock", "Paper", "Scissors"];
-    let randomChoicesIndex = Math.floor(Math.random() * choices.length);
-    let randomChoicesString = choices[randomChoicesIndex];
-    return randomChoicesString;
+    let playerChoice = prompt("Rock, Paper, Scissor?");
+    playerChoice = playerChoice; {
+        return playerChoice;
+    }
 }
 
 function playRound(playerSelection, computerSelection) {
 
 
+    win = "Result: Easiest Win Of My Life";
+    lose = "Result: A Bot Is Beating You?. Come On, Dude...";
+    incorrect = "Invalid Answer";
+
     if (playerSelection === computerSelection) {
         return "Both Lose";
-
     }
     else if (computerSelection === "Rock" && playerSelection === "Paper") {
-        // return "Result: Easiest Win Of My Life";
-        return "Win";
+        return win;
     }
-    else if (computerSelection === "Rock" || playerSelection === "Paper") {
-        // return "Result: A Bot Is Beating You?. Come On, Dude...";
-        return "Lose";
+    else if (computerSelection === "Rock" && playerSelection === "Scissor") {
+        return lose;
     }
-    else if (computerSelection === "Paper" && playerSelection === "Scissors") {
-        // return "Result: Easiest Win Of My Life"
-        return "Win";
+    else if (computerSelection === "Paper" && playerSelection === "Scissor") {
+        return win;
     }
-    else if (computerSelection === "Paper" || playerSelection === "Scissors") {
-        // return "Result: A Bot Is Beating You?. Come On, Dude..."
-        return "Lose";
+    else if (computerSelection === "Paper" && playerSelection === "Rock") {
+        return lose;
     }
-    else if (computerSelection === "Scissors" && playerSelection === "Paper") {
-        // return "Result: A Bot Is Beating You?. Come On, Dude..."
-        return "Lose";
+    else if (computerSelection === "Scissor" && playerSelection === "Paper") {
+        return lose;
     }
-    else if (computerSelection === "Scissors" || playerSelection === "Paper") {
-        // return "Result: Easiest Win Of My Life"
-        return "Win";
+    else if (computerSelection === "Scissor" && playerSelection === "Rock") {
+        return win;
     }
-
+    else {
+        return incorrect;
+    }
 }
 
 const playerSelection = getPlayerChoice();
@@ -61,25 +76,35 @@ console.log("I Play:", playerSelection);
 console.log("Bot Plays:", computerSelection);
 console.log(playRound(playerSelection, computerSelection));
 
-
+results = [];
 function game() {
-    let resultChoices = ["Win", "Lose", "Both Lose"];
-    let sum = 0;
-    let results = [];
 
-    for (let i = 0; i = 4; i++) {
-        playRound();
+    let win = 1;
+    let lose = 0;
+
+    if (playRound(playerSelection, computerSelection) === win) {
+        win++;
+    }
+
+    resultChoices = playRound(playerSelection, computerSelection);
+    sum = win + lose;
+
+    //     let i = 0;
+    //     while (i < 5) {
+    //         resultChoices;
+    //         i++;
+    //         results.push(sum);
+    //         return results;
+    //     }
+    // }
+    // console.log(game());
+
+    for (let i = 0; i < 5; i++) {
+        playRound(0);
         sum += resultChoices[i];
         results.push(sum);
     }
+    return results;
+
+    console.log(game());
 }
-//     if (playRound === "win") {
-
-//     }
-
-
-//     // const
-//     // const playerWins = "Win";
-//     // const botWins = "Lose";
-// }
-console.log(results);
