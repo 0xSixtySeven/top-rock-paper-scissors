@@ -42,10 +42,11 @@ function playRound(playerSelection, computerSelection) {
 
     win = "Result: Easiest Win Of My Life";
     lose = "Result: A Bot Is Beating You?. Come On, Dude...";
+    draw = "Both Lose"
     incorrect = "Invalid Answer";
 
     if (playerSelection === computerSelection) {
-        return "Both Lose";
+        return draw;
     }
     else if (computerSelection === "Rock" && playerSelection === "Paper") {
         return win;
@@ -76,13 +77,14 @@ console.log("I Play:", playerSelection);
 console.log("Bot Plays:", computerSelection);
 console.log(playRound(playerSelection, computerSelection));
 
+
 results = [];
 function game() {
 
     let win = 1;
     let lose = 0;
 
-    if (playRound(playerSelection, computerSelection) === win) {
+    if (playRound(playerSelection) === win) {
         win++;
     }
 
@@ -103,8 +105,8 @@ function game() {
         playRound(0);
         sum += resultChoices[i];
         results.push(sum);
+        return results;
     }
-    return results;
 
     console.log(game());
 }
